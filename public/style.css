@@ -53,6 +53,11 @@
   padding: 30px;
 }
 
+/* Heading */
+#right-panel-heading {
+  margin-bottom: 16px;
+}
+
 /* Form Styling */
 form {
   width: 90%;
@@ -152,7 +157,6 @@ form input {
   color: white;
 }
 
-/* Ensure it's properly centered */
 .center-content {
   display: flex;
   flex-direction: column;
@@ -160,8 +164,40 @@ form input {
   justify-content: center;
 }
 
+/* --------- */
+/* Utilities */
+/* --------- */
 .logo {
   padding: 14px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Fade */
+.fade-in {
+  display: block;
+  animation: fadeIn 0.4s ease-in-out forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.4s ease-in-out forwards;
+}
+
+/* Fade Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.flex-column {
+  flex-direction: column;
 }
 
 /* Responsive Breakpoints */

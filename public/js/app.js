@@ -1,6 +1,6 @@
 import { UIController } from "./uiController.js";
-import { APIService } from "./apiService.js";
-import { AuthManager } from "./authManager.js";
+// import { APIService } from "./apiService.js";
+// import { AuthManager } from "./authManager.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     UIController.init();
