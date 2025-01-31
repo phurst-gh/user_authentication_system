@@ -10,21 +10,8 @@
     <div class="container">
       <!-- Left Side -->
       <div class="left-panel">
-        <div class="content">
-          <h2>
-            Hello, <br />
-            welcome to user_auth_system!
-          </h2>
-          <img src="svgs/logo.svg" alt="Logo" class="logo" />
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-          <button id="toggle-form-btn" class="toggle-btn">Sign In →</button>
-        </div>
-      </div>
-
-      <!-- Right Side -->
-      <div class="right-panel">
         <div id="register-form">
-          <h2 class="right-panel-heading">Create your account</h2>
+          <h2 class="heading">Create your account</h2>
           <!-- Register Form -->
           <form>
             <label for="name">Name</label>
@@ -55,20 +42,22 @@
               <input type="checkbox" id="terms" required />
               <label for="terms"
                 >By Signing Up I Agree with
-                <a href="#">Terms & Conditions</a></label
+                <a href="#"> Terms & Conditions</a></label
               >
             </div>
 
             <div class="buttons">
               <button type="submit" class="signup-btn">Sign Up</button>
-              <button type="button" class="signin-btn">Sign In</button>
+              <button type="button" class="signin-btn toggle-form-btn">
+                Sign In
+              </button>
             </div>
           </form>
         </div>
 
         <!-- Login Form -->
         <div id="login-form" class="hidden">
-          <h2 id="right-panel-heading">Sign in to your account</h2>
+          <h2 class="heading">Sign in to your account</h2>
           <form>
             <label for="login-email">E-mail Address</label>
             <input
@@ -86,18 +75,34 @@
               required
             />
 
-            <div class="remember-me">
-              <input type="checkbox" id="remember-me" />
-              <label for="remember-me">Remember Me</label>
-            </div>
-
-            <div class="buttons flex-column">
-              <button type="submit" class="signin-btn full-width">
-                Sign In
-              </button>
+            <div class="login-checks">
+              <div class="remember-me">
+                <input type="checkbox" id="remember-me" />
+                <label for="remember-me">Remember Me</label>
+              </div>
               <a href="#" class="forgot-password">Forgot Password?</a>
             </div>
+
+            <div class="buttons">
+              <button type="submit" class="signup-btn">Sign In</button>
+              <button type="button" class="signin-btn toggle-form-btn">
+                Sign Up
+              </button>
+            </div>
           </form>
+        </div>
+      </div>
+
+      <!-- Right Side -->
+      <div class="right-panel">
+        <div class="content">
+          <h2>One Login, Infinite Possibilities.</h2>
+          <img src="svgs/logo.svg" alt="Logo" class="logo" />
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt..
+          </p>
+          <button class="toggle-btn">Find out more →</button>
         </div>
       </div>
     </div>

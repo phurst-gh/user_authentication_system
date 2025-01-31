@@ -1,31 +1,42 @@
 export const UIController = (() => {
-    function init() {
-        console.log("UI Initialized");
+  function init() {
+    console.log("UI Initialized");
 
-        const toggleFormBtn = document.getElementById("toggle-form-btn");
-        const loginForm = document.getElementById("login-form");
-        const registerForm = document.getElementById("register-form");
-        const rightPanelHeading = document.getElementById("right-panel-heading");
+    const toggleFormBtns = document.querySelectorAll(".toggle-form-btn");
+    const loginForm = document.getElementById("login-form");
+    const registerForm = document.getElementById("register-form");
 
-        if (!toggleFormBtn || !loginForm || !registerForm || !rightPanelHeading) {
-            console.error("One or more elements are missing from the DOM.");
-            return;
-        }
-
-        toggleFormBtn.addEventListener("click", () => {
-            if (registerForm.classList.contains("hidden")) {
-                // Switching to Register Form
-                loginForm.classList.add("hidden");
-                registerForm.classList.remove("hidden");
-                toggleFormBtn.textContent = "Sign In →";
-            } else {
-                // Switching to Login Form
-                registerForm.classList.add("hidden");
-                loginForm.classList.remove("hidden");
-                toggleFormBtn.textContent = "Sign Up →";
-            }
-        });
+    if (!toggleFormBtns || !loginForm || !registerForm) {
+      console.error("One or more elements are missing from the DOM.");
+      return;
     }
 
-    return { init };
+    toggleFormBtns.forEach(button => {
+      button.addEventListener("click", () => {
+        registerForm.classList.toggle('hidden');
+        loginForm.classList.toggle('hidden');
+
+        if (registerForm.classList.contains("hidden")) {
+          // Switching to Register Form
+          button.textContent = "Sign In →";
+        } else {
+          // Switching to Login Form
+          button.textContent = "Sign Up →";
+        }
+      });
+    });
+  }
+
+  function showMessage(message, type = "success") {
+    const messageBox = document.createElement("div");
+    messageBox.className = `message-box ${type}`;
+    messageBox.textContent = message;
+    document.body.appendChild(messageBox);
+
+    setTimeout(() => {
+      messageBox.remove();
+    }, 3000);
+  }
+
+  return { init, showMessage };
 })();
