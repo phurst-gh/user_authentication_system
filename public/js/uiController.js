@@ -9,8 +9,6 @@ export const UIController = (() => {
       return;
     }
 
-    console.log('toggleFormBtns', toggleFormBtns);
-
     toggleFormBtns.forEach((button) => {
       button.addEventListener("click", () => {
         registerForm.classList.toggle("hidden");
@@ -21,7 +19,10 @@ export const UIController = (() => {
     });
   }
 
+
+  // not working
   function showMessage(message, type = "success") {
+    console.log('inside message box');
     const messageBox = document.createElement("div");
     messageBox.className = `message-box ${type}`;
     messageBox.textContent = message;
@@ -29,7 +30,7 @@ export const UIController = (() => {
 
     setTimeout(() => {
       messageBox.remove();
-    }, 3000);
+    }, 5000);
   }
 
   function init() {

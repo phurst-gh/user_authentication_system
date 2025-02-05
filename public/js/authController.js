@@ -20,20 +20,25 @@ export const AuthController = (() => {
     async function handleRegister(event) {
         event.preventDefault();
 
+        console.log("Registering...");
+
         const name = document.getElementById("name").value.trim();
         const email = document.getElementById("email").value.trim();
         const password = document.getElementById("password").value.trim();
 
         const validationErrors = validateRegisterForm(name, email, password);
         if (Object.keys(validationErrors).length > 0) {
+            console.log("Registering...validationErrors");
             UIController.showMessage(Object.values(validationErrors).join("\n"), "error");
             return;
         }
 
         try {
+            console.log("Registering...try");
             await APIService.register(name, email, password);
             UIController.showMessage("Registration successful! Please log in.", "success");
         } catch (error) {
+            console.log("Registering...catch");
             UIController.showMessage(error.message, "error");
         }
     }
@@ -56,10 +61,10 @@ export const AuthController = (() => {
     }
 
     function init() {
-      console.log("AuthController Initialized");
-
       const registerForm = document.getElementById("register-form");
       const loginForm = document.getElementById("login-form");
+
+      console.log("AuthController initialized");
 
       if (registerForm) {
           registerForm.addEventListener("submit", handleRegister);

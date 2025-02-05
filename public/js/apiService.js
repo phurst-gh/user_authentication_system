@@ -1,7 +1,9 @@
+const baseUrl = "http://localhost:3001";
+
 export const APIService = {
   async register(name, email, password) {
       try {
-          const response = await fetch("http://localhost:3001/register", {
+          const response = await fetch(`${baseUrl}/api/register`, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({ name, email, password }),
@@ -21,7 +23,7 @@ export const APIService = {
 
   async login(email, password) {
       try {
-          const response = await fetch("http://localhost:3001/login", {
+          const response = await fetch(`${baseUrl}/api/login`, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({ email, password }),
@@ -42,7 +44,7 @@ export const APIService = {
 
   async logout() {
       try {
-          await fetch("http://localhost:3001/logout", {
+          await fetch(`${baseUrl}/api/logout`, {
               method: "GET",
               credentials: "include",
           });

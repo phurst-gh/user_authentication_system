@@ -36,7 +36,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 const corsOptions = {
-  origin: 'http://localhost:3000', // Whitelist my frontend URL
+  origin: ["http://127.0.0.1:5500", "http://localhost:5500"], // Whitelist my frontend
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', 
   credentials: true, // Allow cookies and credentials
 };
