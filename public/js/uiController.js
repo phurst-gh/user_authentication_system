@@ -1,28 +1,22 @@
 export const UIController = (() => {
-  function init() {
-    console.log("UI Initialized");
-
+  function toggleForms() {
     const toggleFormBtns = document.querySelectorAll(".toggle-form-btn");
     const loginForm = document.getElementById("login-form");
     const registerForm = document.getElementById("register-form");
 
-    if (!toggleFormBtns || !loginForm || !registerForm) {
+    if (!toggleFormBtns.length || !loginForm || !registerForm) {
       console.error("One or more elements are missing from the DOM.");
       return;
     }
 
-    toggleFormBtns.forEach(button => {
-      button.addEventListener("click", () => {
-        registerForm.classList.toggle('hidden');
-        loginForm.classList.toggle('hidden');
+    console.log('toggleFormBtns', toggleFormBtns);
 
-        if (registerForm.classList.contains("hidden")) {
-          // Switching to Register Form
-          button.textContent = "Sign In →";
-        } else {
-          // Switching to Login Form
-          button.textContent = "Sign Up →";
-        }
+    toggleFormBtns.forEach((button) => {
+      button.addEventListener("click", () => {
+        registerForm.classList.toggle("hidden");
+        loginForm.classList.toggle("hidden");
+
+        button.textContent = registerForm.classList.contains("hidden") ? "Sign In →" : "Sign Up →";
       });
     });
   }
@@ -36,6 +30,10 @@ export const UIController = (() => {
     setTimeout(() => {
       messageBox.remove();
     }, 3000);
+  }
+
+  function init() {
+    toggleForms();
   }
 
   return { init, showMessage };

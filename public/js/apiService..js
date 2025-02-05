@@ -1,35 +1,53 @@
-import { APIService } from "./apiService.js";
+export const APIService = {
+  async register(name, email, password) {
+      try {
+          const response = await fetch("http://localhost:3001/register", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ name, email, password }),
+          });
 
-document.addEventListener("DOMContentLoaded", () => {
-    const registerForm = document.getElementById("register-form");
-    const loginForm = document.getElementById("login-form");
+          if (!response.ok) {
+              const data = await response.json();
+              throw new Error(data.message || "Registration failed.");
+          }
 
-    // Handle Register Form Submission
-    registerForm.addEventListener("submit", async (event) => {
-        event.preventDefault();
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
+          return await response.json();
+      } catch (error) {
+          console.error("Register Error:", error);
+          throw error;
+      }
+  },
 
-        try {
-            const response = await APIService.register(name, email, password);
-            alert("Registration successful! Please log in.");
-        } catch (error) {
-            alert(error.message || "Registration failed.");
-        }
-    });
+  async login(email, password) {
+      try {
+          const response = await fetch("http://localhost:3001/login", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ email, password }),
+              credentials: "include",
+          });
 
-    // Handle Login Form Submission
-    loginForm.addEventListener("submit", async (event) => {
-        event.preventDefault();
-        const email = document.getElementById("login-email").value;
-        const password = document.getElementById("login-password").value;
+          if (!response.ok) {
+              const data = await response.json();
+              throw new Error(data.message || "Invalid credentials.");
+          }
 
-        try {
-            const response = await APIService.login(email, password);
-            alert("Login successful! Redirecting...");
-            window.location.href = "/dashboard.html"; // Redirect after login
-        } catch (error) {
-        }
-    });
-});
+          return await response.json();
+      } catch (error) {
+          console.error("Login Error:", error);
+          throw error;
+      }
+  },
+
+  async logout() {
+      try {
+          await fetch("http://localhost:3001/logout", {
+              method: "GET",
+              credentials: "include",
+          });
+      } catch (error) {
+          console.error("Logout Error:", error);
+      }
+  }
+};
