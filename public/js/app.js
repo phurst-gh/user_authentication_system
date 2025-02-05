@@ -1,9 +1,7 @@
 import { UIController } from "./uiController.js";
-import { authController } from "./authController.js";
-import { APIService } from "./apiService.js";
+import { AuthController } from "./authController.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   UIController.init();
-  authController.init();
-  APIService.init();
+  AuthController.init();
 });

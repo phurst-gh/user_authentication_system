@@ -2,21 +2,6 @@ import { UIController } from "./uiController.js";
 import { APIService } from "./apiService.js";
 
 export const AuthController = (() => {
-    function init() {
-        console.log("AuthController Initialized");
-
-        const registerForm = document.getElementById("register-form");
-        const loginForm = document.getElementById("login-form");
-
-        if (registerForm) {
-            registerForm.addEventListener("submit", handleRegister);
-        }
-
-        if (loginForm) {
-            loginForm.addEventListener("submit", handleLogin);
-        }
-    }
-
     function validateRegisterForm(name, email, password) {
         const errors = {};
 
@@ -69,6 +54,21 @@ export const AuthController = (() => {
             UIController.showMessage(error.message, "error");
         }
     }
+
+    function init() {
+      console.log("AuthController Initialized");
+
+      const registerForm = document.getElementById("register-form");
+      const loginForm = document.getElementById("login-form");
+
+      if (registerForm) {
+          registerForm.addEventListener("submit", handleRegister);
+      }
+
+      if (loginForm) {
+          loginForm.addEventListener("submit", handleLogin);
+      }
+  }
 
     return { init };
 })();
