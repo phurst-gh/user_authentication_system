@@ -1,4 +1,4 @@
-export const UIController = (() => {
+export const Homepage = (() => {
   function toggleForms() {
     const toggleFormBtns = document.querySelectorAll(".toggle-form-btn");
     const loginForm = document.getElementById("login-form");
@@ -19,23 +19,9 @@ export const UIController = (() => {
     });
   }
 
-
-  // not working
-  function showMessage(message, type = "success") {
-    console.log('inside message box');
-    const messageBox = document.createElement("div");
-    messageBox.className = `message-box ${type}`;
-    messageBox.textContent = message;
-    document.body.appendChild(messageBox);
-
-    setTimeout(() => {
-      messageBox.remove();
-    }, 5000);
-  }
-
   function init() {
     toggleForms();
   }
 
-  return { init, showMessage };
+  return { init };
 })();
