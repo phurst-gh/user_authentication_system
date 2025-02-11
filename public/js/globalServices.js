@@ -1,15 +1,15 @@
 export const GlobalServices = (() => {
   function showMessage(message, type = "success") {
-    const container = document.querySelector(".container");
-    if (!container) {
-      console.error("Container element not found.");
+    const body = document.body;
+    if (!body) {
+      console.error("body element not found.. ¯\_(ツ)_/¯");
       return;
     }
 
     const messageBox = document.createElement("div");
     messageBox.className = `message-box ${type}`;
     messageBox.textContent = message;
-    container.appendChild(messageBox);
+    body.appendChild(messageBox);
 
     setTimeout(() => {
       messageBox.classList.add("show");
