@@ -62,7 +62,7 @@ user_authentication_system/
 
 4. Start the backend server:
    ```sh
-   npm start
+   npm/pnpm dev
    ```
    The server will run on `http://localhost:3000`.
 
