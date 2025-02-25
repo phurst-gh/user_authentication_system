@@ -66,7 +66,7 @@ user_authentication_system/
    ```
    The server will run on `http://localhost:3000`.
 
-5. Open `public/index.html` in your browser to access the frontend.
+5. Open `public/index.html` in your browser to access the frontend. You may want to use a live server, the easiest way to do this is through VSCode's Live Server extension
 
 ## Backend
 
