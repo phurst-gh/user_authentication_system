@@ -1,6 +1,6 @@
 # User Authentication System
 
-This project is a full-stack user authentication system that provides secure user registration and login functionality using Node.js, Express, and Passport.js for the backend, with a frontend built using Vanilla JavaScript, HTML, and CSS.
+This project is a full-stack user authentication system that provides secure user registration and login functionality using Node.js, Express, MongoDB, and Passport.js for the backend, with a frontend built using Vanilla JavaScript, HTML, and CSS.
 
 ## Table of Contents
 
